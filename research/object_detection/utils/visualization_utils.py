@@ -63,6 +63,148 @@ STANDARD_COLORS = [
     'WhiteSmoke', 'Yellow', 'YellowGreen'
 ]
 
+# fucking shits BGR
+cnames = {
+'aliceblue':            '#FFF8F0',
+'antiquewhite':         '#D7EBFA',
+'aqua':                 '#FFFF00',
+'aquamarine':           '#D4FF7F',
+'azure':                '#FFFFF0',
+'beige':                '#DCF5F5',
+'bisque':               '#C4E4FF',
+'black':                '#000000',
+'blanchedalmond':       '#CDEBFF',
+'blue':                 '#FF0000',
+'blueviolet':           '#E22B8A',
+'brown':                '#2A2AA5',
+'burlywood':            '#87B8DE',
+'cadetblue':            '#A09E5F',
+'chartreuse':           '#00FF7F',
+'chocolate':            '#1E69D2',
+'coral':                '#507FFF',
+'cornflowerblue':       '#ED9564',
+'cornsilk':             '#DCF8FF',
+'crimson':              '#3C14DC',
+'cyan':                 '#FFFF00',
+'darkblue':             '#8B0000',
+'darkcyan':             '#8B8B00',
+'darkgoldenrod':        '#0B86B8',
+'darkgray':             '#A9A9A9',
+'darkgreen':            '#006400',
+'darkkhaki':            '#6BB7BD',
+'darkmagenta':          '#8B008B',
+'darkolivegreen':       '#2F6B55',
+'darkorange':           '#008CFF',
+'darkorchid':           '#CC3299',
+'darkred':              '#00008B',
+'darksalmon':           '#7A96E9',
+'darkseagreen':         '#8FBC8F',
+'darkslateblue':        '#8B3D48',
+'darkslategray':        '#4F4F2F',
+'darkturquoise':        '#D1CE00',
+'darkviolet':           '#D30094',
+'deeppink':             '#9314FF',
+'deepskyblue':          '#FFBF00',
+'dimgray':              '#696969',
+'dodgerblue':           '#FF901E',
+'firebrick':            '#2222B2',
+'floralwhite':          '#F0FAFF',
+'forestgreen':          '#228B22',
+'fuchsia':              '#FF00FF',
+'gainsboro':            '#DCDCDC',
+'ghostwhite':           '#FFF8F8',
+'gold':                 '#00D7FF',
+'goldenrod':            '#20A5DA',
+'gray':                 '#808080',
+'green':                '#008000',
+'greenyellow':          '#2FFFAD',
+'honeydew':             '#F0FFF0',
+'hotpink':              '#B469FF',
+'indianred':            '#5C5CCD',
+'indigo':               '#82004B',
+'ivory':                '#F0FFFF',
+'khaki':                '#8CE6F0',
+'lavender':             '#FAE6E6',
+'lavenderblush':        '#F5F0FF',
+'lawngreen':            '#00FC7C',
+'lemonchiffon':         '#CDFAFF',
+'lightblue':            '#E6D8AD',
+'lightcoral':           '#8080F0',
+'lightcyan':            '#FFFFE0',
+'lightgoldenrodyellow': '#D2FAFA',
+'lightgreen':           '#90EE90',
+'lightgray':            '#D3D3D3',
+'lightpink':            '#C1B6FF',
+'lightsalmon':          '#7AA0FF',
+'lightseagreen':        '#AAB220',
+'lightskyblue':         '#FACE87',
+'lightslategray':       '#998877',
+'lightsteelblue':       '#DEC4B0',
+'lightyellow':          '#E0FFFF',
+'lime':                 '#00FF00',
+'limegreen':            '#32CD32',
+'linen':                '#E6F0FA',
+'magenta':              '#FF00FF',
+'maroon':               '#000080',
+'mediumaquamarine':     '#AACD66',
+'mediumblue':           '#CD0000',
+'mediumorchid':         '#D355BA',
+'mediumpurple':         '#DB7093',
+'mediumseagreen':       '#71B33C',
+'mediumslateblue':      '#EE687B',
+'mediumspringgreen':    '#9AFA00',
+'mediumturquoise':      '#CCD148',
+'mediumvioletred':      '#8515C7',
+'midnightblue':         '#701919',
+'mintcream':            '#FAFFF5',
+'mistyrose':            '#E1E4FF',
+'moccasin':             '#B5E4FF',
+'navajowhite':          '#ADDEFF',
+'navy':                 '#800000',
+'oldlace':              '#E6F5FD',
+'olive':                '#008080',
+'olivedrab':            '#238E6B',
+'orange':               '#00A5FF',
+'orangered':            '#0045FF',
+'orchid':               '#D670DA',
+'palegoldenrod':        '#AAE8EE',
+'palegreen':            '#98FB98',
+'paleturquoise':        '#EEEEAF',
+'palevioletred':        '#9370DB',
+'papayawhip':           '#D5EFFF',
+'peachpuff':            '#B9DAFF',
+'peru':                 '#3F85CD',
+'pink':                 '#CBC0FF',
+'plum':                 '#DDA0DD',
+'powderblue':           '#E6E0B0',
+'purple':               '#800080',
+'red':                  '#0000FF',
+'rosybrown':            '#8F8FBC',
+'royalblue':            '#E16941',
+'saddlebrown':          '#13458B',
+'salmon':               '#7280FA',
+'sandybrown':           '#60A4FA',
+'seagreen':             '#578B2E',
+'seashell':             '#EEF5FF',
+'sienna':               '#2D52A0',
+'silver':               '#C0C0C0',
+'skyblue':              '#EBCE87',
+'slateblue':            '#CD5A6A',
+'slategray':            '#908070',
+'snow':                 '#FAFAFF',
+'springgreen':          '#7FFF00',
+'steelblue':            '#B48246',
+'tan':                  '#8CB4D2',
+'teal':                 '#808000',
+'thistle':              '#D8BFD8',
+'tomato':               '#4763FF',
+'turquoise':            '#D0E040',
+'violet':               '#EE82EE',
+'wheat':                '#B3DEF5',
+'white':                '#FFFFFF',
+'whitesmoke':           '#F5F5F5',
+'yellow':               '#00FFFF',
+'yellowgreen':          '#32CD9A'}
 
 def save_image_array_as_png(image, output_path):
   """Saves an image (represented as a numpy array) to PNG.
@@ -180,26 +322,28 @@ def draw_bounding_box_on_image(image,
   # instead of above.
   display_str_heights = [font.getsize(ds)[1] for ds in display_str_list]
   # Each display_str has a top and bottom margin of 0.05x.
-  total_display_str_height = (1 + 2 * 0.05) * sum(display_str_heights)
+  total_display_str_height = (1 + 2 * 0.05) * font.getsize(display_str_list[0])[1]
 
   if top > total_display_str_height:
     text_bottom = top
   else:
     text_bottom = bottom + total_display_str_height
   # Reverse list and print from bottom to top.
-  for display_str in display_str_list[::-1]:
-    text_width, text_height = font.getsize(display_str)
-    margin = np.ceil(0.05 * text_height)
-    draw.rectangle(
-        [(left, text_bottom - text_height - 2 * margin), (left + text_width,
-                                                          text_bottom)],
-        fill=color)
-    draw.text(
-        (left + margin, text_bottom - text_height - margin),
-        display_str,
-        fill='black',
-        font=font)
-    text_bottom -= text_height - 2 * margin
+  
+  #for display_str in display_str_list[::-1]:
+  display_str = display_str_list[-1]
+  text_width, text_height = font.getsize(display_str)
+  margin = np.ceil(0.05 * text_height)
+  draw.rectangle(
+      [(left, text_bottom - text_height - 2 * margin), (left + text_width,
+                                                        text_bottom)],
+      fill=color)
+  draw.text(
+      (left + margin, text_bottom - text_height - margin),
+      display_str,
+      fill='black',
+      font=font)
+  text_bottom -= text_height - 2 * margin
 
 
 def draw_bounding_boxes_on_image_array(image,
@@ -553,6 +697,7 @@ def visualize_boxes_and_labels_on_image_array(
     agnostic_mode=False,
     line_thickness=4,
     groundtruth_box_visualization_color='black',
+    class_name_to_color_map={},
     skip_scores=False,
     skip_labels=False):
   """Overlay labeled boxes on an image with formatted scores and label names.
@@ -635,10 +780,17 @@ def visualize_boxes_and_labels_on_image_array(
         else:
           box_to_color_map[box] = STANDARD_COLORS[
               classes[i] % len(STANDARD_COLORS)]
+          if classes[i] in category_index.keys():
+            class_name = category_index[classes[i]]['name']
+            if class_name in class_name_to_color_map:
+              box_to_color_map[box] = class_name_to_color_map[ class_name ]
 
   # Draw all boxes onto image.
   for box, color in box_to_color_map.items():
     ymin, xmin, ymax, xmax = box
+    if color.lower() in cnames:
+      print(color,'->',cnames[ color.lower() ])
+      color = cnames[ color.lower() ]
     if instance_masks is not None:
       draw_mask_on_image_array(
           image,

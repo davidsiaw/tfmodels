@@ -66,6 +66,7 @@ def freeze_graph_with_def_protos(
   with tf.Graph().as_default():
     tf.import_graph_def(input_graph_def, name='')
     config = tf.ConfigProto(graph_options=tf.GraphOptions())
+
     with session.Session(config=config) as sess:
       if input_saver_def:
         saver = saver_lib.Saver(saver_def=input_saver_def)
