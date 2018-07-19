@@ -773,7 +773,7 @@ def visualize_boxes_and_labels_on_image_array(
           if not display_str:
             display_str = '{}%'.format(int(100*scores[i]))
           else:
-            display_str = '{}: {}%'.format(display_str, int(100*scores[i]))
+            display_str = '({}) {}: {}%'.format(i, display_str, int(100*scores[i]))
         box_to_display_str_map[box].append(display_str)
         if agnostic_mode:
           box_to_color_map[box] = 'DarkOrange'
